@@ -33,7 +33,7 @@ export function ShareButton() {
   return (
     <button
       onClick={share}
-      className="flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm
+      className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold text-sm w-full
         bg-blue-600 hover:bg-blue-700 text-white transition"
     >
       📤 {t('btn.share')}

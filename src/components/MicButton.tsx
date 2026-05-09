@@ -38,7 +38,7 @@ export function MicButton({ onError }: Props) {
     <button
       onClick={() => void toggle()}
       disabled={loading}
-      className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm transition
+      className={`flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold text-sm transition w-full
         disabled:opacity-50 ${
           isRecording
             ? 'bg-red-500 hover:bg-red-600 text-white'
