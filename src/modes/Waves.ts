@@ -1,5 +1,5 @@
 import type { PaintMode, AudioFrame, RenderState } from '../types'
-import { modeColor } from './index'
+import { modeColor } from './colors'
 
 export const WavesMode: PaintMode = {
   id: 'waves',

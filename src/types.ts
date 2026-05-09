@@ -4,7 +4,7 @@ export interface AudioFrame {
   low: number           // 0-1 bass energy (bins 0-42)
   mid: number           // 0-1 mid energy  (bins 43-85)
   high: number          // 0-1 treble energy (bins 86-127)
-  dataArray: Uint8Array // raw FFT byte data (128 bins)
+  dataArray: Uint8Array<ArrayBuffer> // raw FFT byte data (128 bins)
 }
 
 // Render state passed alongside AudioFrame

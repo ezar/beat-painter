@@ -11,7 +11,7 @@ export class AudioEngine {
   private analyser: AnalyserNode | null = null
   private source: MediaStreamAudioSourceNode | null = null
   private stream: MediaStream | null = null
-  private data: Uint8Array = new Uint8Array(BIN_COUNT)
+  private data: Uint8Array<ArrayBuffer> = new Uint8Array(BIN_COUNT)
 
   async start(): Promise<void> {
     this.stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false })
@@ -21,7 +21,7 @@ export class AudioEngine {
     this.analyser.smoothingTimeConstant = 0.8
     this.source = this.ctx.createMediaStreamSource(this.stream)
     this.source.connect(this.analyser)
-    this.data = new Uint8Array(this.analyser.frequencyBinCount)
+    this.data = new Uint8Array(this.analyser.frequencyBinCount) as Uint8Array<ArrayBuffer>
   }
 
   stop(): void {
@@ -65,10 +65,11 @@ export class AudioEngine {
 // Demo audio: fake sinusoidal data for when mic is not active
 export function demoFrame(frame: number): AudioFrame {
   const t = frame * 0.025
-  const volume = 0.1 + 0.07 * Math.sin(t * 1.3) + 0.04 * Math.cos(t * 2.9)
-  const low    = 0.15 + 0.1  * Math.sin(t * 0.7)
-  const mid    = 0.10 + 0.09 * Math.cos(t * 1.1)
-  const high   = 0.08 + 0.07 * Math.sin(t * 2.3)
-  const data   = new Uint8Array(128).fill(0)
+  const clamp = (v: number) => Math.min(1, Math.max(0, v))
+  const volume = clamp(0.1 + 0.07 * Math.sin(t * 1.3) + 0.04 * Math.cos(t * 2.9))
+  const low    = clamp(0.15 + 0.1  * Math.sin(t * 0.7))
+  const mid    = clamp(0.10 + 0.09 * Math.cos(t * 1.1))
+  const high   = clamp(0.08 + 0.07 * Math.sin(t * 2.3))
+  const data   = new Uint8Array(128).fill(0) as Uint8Array<ArrayBuffer>
   return { volume, low, mid, high, dataArray: data }
 }
