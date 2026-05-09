@@ -18,7 +18,7 @@ export function SaveButton() {
   return (
     <button
       onClick={save}
-      className="flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm
+      className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold text-sm w-full
         bg-green-600 hover:bg-green-700 text-white transition"
     >
       💾 {t('btn.save')}

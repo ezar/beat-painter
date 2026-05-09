@@ -37,7 +37,7 @@ function MainPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a10] text-white flex flex-col select-none">
+    <div className="h-svh bg-[#0a0a10] text-white flex flex-col select-none overflow-hidden">
       {/* Header */}
       <header className="flex items-center justify-between px-4 py-2 border-b border-gray-800 flex-shrink-0">
         <h1 className="text-lg font-bold tracking-tight bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -59,11 +59,13 @@ function MainPage() {
         </div>
       </header>
 
-      {/* Canvas */}
-      <Canvas onFrame={handleFrame} />
+      {/* Canvas — flex-1 so it fills whatever vertical space remains */}
+      <div className="flex-1 min-h-0">
+        <Canvas onFrame={handleFrame} />
+      </div>
 
       {/* Volume bar */}
-      <div className="px-4 py-2 flex-shrink-0">
+      <div className="px-4 py-1.5 flex-shrink-0">
         <VolumeBar volume={volume} />
       </div>
 
@@ -82,13 +84,13 @@ function MainPage() {
         </div>
       )}
 
-      {/* Action buttons */}
-      <div className="flex flex-wrap gap-2 justify-center px-4 py-2 flex-shrink-0">
+      {/* Action buttons — 2×2 grid so nothing wraps on narrow phones */}
+      <div className="grid grid-cols-2 gap-2 px-4 py-1.5 flex-shrink-0">
         <MicButton onError={setError} />
         <button
           onClick={() => renderer.clear()}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm
-            bg-gray-700 hover:bg-gray-600 text-white transition"
+          className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold text-sm
+            bg-gray-700 hover:bg-gray-600 text-white transition w-full"
         >
           🗑️ {t('btn.clear')}
         </button>
@@ -97,12 +99,12 @@ function MainPage() {
       </div>
 
       {/* Mode selector */}
-      <div className="px-4 py-2 flex-shrink-0">
+      <div className="px-4 py-1.5 flex-shrink-0">
         <ModeSelector />
       </div>
 
       {/* Palette selector */}
-      <div className="px-4 pb-4 flex-shrink-0">
+      <div className="px-4 pb-3 flex-shrink-0">
         <PaletteSelector />
       </div>
     </div>

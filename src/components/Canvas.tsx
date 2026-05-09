@@ -48,7 +48,7 @@ export function Canvas({ onFrame }: Props) {
   }, [])
 
   return (
-    <div ref={containerRef} className="w-full relative aspect-video bg-[#0a0a10]">
+    <div ref={containerRef} className="w-full h-full relative bg-[#0a0a10]">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
       {!isRecording && (
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 bg-black/60 rounded-full text-xs text-gray-400 pointer-events-none">
