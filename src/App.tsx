@@ -10,6 +10,7 @@ import { SaveButton } from './components/SaveButton'
 import { ShareButton } from './components/ShareButton'
 import { Gallery } from './components/Gallery'
 import { useGalleryStore } from './store/galleryStore'
+import { useCanvasStore } from './store/canvasStore'
 import { renderer } from './canvas/Renderer'
 import type { AudioFrame } from './types'
 
@@ -20,6 +21,7 @@ function MainPage() {
   const [volume, setVolume] = useState(0)
   const [error, setError] = useState<string | null>(null)
   const { notification, clearNotification } = useGalleryStore()
+  const { mode, palette } = useCanvasStore()
 
   const handleFrame = useCallback((audio: AudioFrame) => {
     setVolume(audio.volume)
@@ -61,6 +63,11 @@ function MainPage() {
           </Link>
         </div>
       </header>
+
+      {/* DEBUG overlay — remove once issue is diagnosed */}
+      <div className="fixed top-12 left-1/2 -translate-x-1/2 z-50 bg-black/80 text-white text-xs px-3 py-1 rounded-full pointer-events-none whitespace-nowrap">
+        mode: <b>{mode.id}</b> · palette: <b>{palette.id}</b>
+      </div>
 
       {/* Canvas — direct flex child so its own div carries flex-1 */}
       <Canvas onFrame={handleFrame} />
