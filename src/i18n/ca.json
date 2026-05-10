@@ -30,5 +30,7 @@
   "gallery.delete": "Eliminar",
   "gallery.cancel": "Cancel·lar",
   "gallery.download": "Descarregar",
-  "demo.label": "Mode demo — activa el micròfon per pintar amb la teva veu"
+  "demo.label": "Mode demo — activa el micròfon per pintar amb la teva veu",
+  "section.mode": "Mode",
+  "section.palette": "Paleta"
 }
