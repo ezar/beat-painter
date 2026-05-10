@@ -28,10 +28,12 @@ export function Canvas({ onFrame }: Props) {
   }, [])
 
   useEffect(() => {
+    console.log('[CANVAS] setMode effect →', mode.id)
     renderer.setMode(mode)
   }, [mode])
 
   useEffect(() => {
+    console.log('[CANVAS] setPalette effect →', palette.id)
     renderer.setPalette(palette)
   }, [palette])
 
