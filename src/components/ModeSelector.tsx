@@ -11,11 +11,7 @@ export function ModeSelector() {
       {MODES.map((m) => (
         <button
           key={m.id}
-          onPointerDown={() => console.log('[MODE] pointerdown:', m.id)}
-          onClick={() => {
-            console.log('[MODE] click:', m.id)
-            setMode(m)
-          }}
+          onClick={() => setMode(m)}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition
             ${
               mode.id === m.id
