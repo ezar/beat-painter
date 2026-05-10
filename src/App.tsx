@@ -37,7 +37,7 @@ function MainPage() {
   }
 
   return (
-    <div className="h-svh bg-[#0a0a10] text-white flex flex-col select-none overflow-hidden">
+    <div className="h-svh bg-[#0a0a10] text-white flex flex-col select-none">
       {/* Header */}
       <header className="flex items-center justify-between px-4 py-2 border-b border-gray-800 flex-shrink-0">
         <h1 className="text-lg font-bold tracking-tight bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
