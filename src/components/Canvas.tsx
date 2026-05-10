@@ -48,8 +48,8 @@ export function Canvas({ onFrame }: Props) {
   }, [])
 
   return (
-    <div ref={containerRef} className="w-full h-full relative bg-[#0a0a10]">
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+    <div ref={containerRef} className="flex-1 min-h-0 relative bg-[#0a0a10]">
+      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
       {!isRecording && (
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 bg-black/60 rounded-full text-xs text-gray-400 pointer-events-none">
           {t('demo.label')}
