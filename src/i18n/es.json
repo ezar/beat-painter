@@ -30,5 +30,7 @@
   "gallery.delete": "Eliminar",
   "gallery.cancel": "Cancelar",
   "gallery.download": "Descargar",
-  "demo.label": "Modo demo — activa el micrófono para pintar con tu voz"
+  "demo.label": "Modo demo — activa el micrófono para pintar con tu voz",
+  "section.mode": "Modo",
+  "section.palette": "Paleta"
 }

@@ -101,11 +101,13 @@ function MainPage() {
 
       {/* Mode selector */}
       <div className="px-4 py-1.5 flex-shrink-0">
+        <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-1 text-center">{t('section.mode')}</p>
         <ModeSelector />
       </div>
 
       {/* Palette selector */}
       <div className="px-4 pb-3 flex-shrink-0">
+        <p className="text-[10px] text-gray-500 uppercase tracking-widest mb-1 text-center">{t('section.palette')}</p>
         <PaletteSelector />
       </div>
     </div>

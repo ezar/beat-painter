@@ -14,6 +14,8 @@ export function Canvas({ onFrame }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const onFrameRef = useRef(onFrame)
   const { mode, palette, isRecording } = useCanvasStore()
+  const modeName = t(mode.labelKey)
+  const paletteName = t(palette.labelKey)
 
   useEffect(() => {
     onFrameRef.current = onFrame
@@ -50,6 +52,9 @@ export function Canvas({ onFrame }: Props) {
   return (
     <div ref={containerRef} className="flex-1 min-h-0 relative bg-[#0a0a10]">
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
+      <div className="absolute top-2 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 bg-black/50 rounded-full text-xs text-white/60 pointer-events-none">
+        {modeName} · {paletteName}
+      </div>
       {!isRecording && (
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 bg-black/60 rounded-full text-xs text-gray-400 pointer-events-none">
           {t('demo.label')}
