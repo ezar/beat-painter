@@ -59,10 +59,8 @@ function MainPage() {
         </div>
       </header>
 
-      {/* Canvas — flex-1 so it fills whatever vertical space remains */}
-      <div className="flex-1 min-h-0">
-        <Canvas onFrame={handleFrame} />
-      </div>
+      {/* Canvas — direct flex child so its own div carries flex-1 */}
+      <Canvas onFrame={handleFrame} />
 
       {/* Volume bar */}
       <div className="px-4 py-1.5 flex-shrink-0">
